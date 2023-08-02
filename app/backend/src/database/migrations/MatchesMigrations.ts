@@ -5,28 +5,28 @@ export default {
   up(queryInterface: QueryInterface) {
     return queryInterface.createTable<Model<MatchesInterface>>('matches', {
       id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey: true,   
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,   
       },
-        homeTeamId: {
-        type: DataTypes.NUMBER,
+      homeTeamId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         field: 'home_team_id',
       },
-        homeTeamGoals: {
-        type: DataTypes.NUMBER,
+      homeTeamGoals: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         field: 'home_team_goals',
       },
       awayTeamId: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
         field: 'away_team_id',
       },
       awayTeamGoals: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
         field: 'away_team_goals',
       },

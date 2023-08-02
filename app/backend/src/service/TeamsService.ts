@@ -16,6 +16,6 @@ export default class TeamsService {
     const team = await this.teamsModel.findById(id);
     if (!team) return { type: 400, message: 'Team not found' };
 
-    return { type: 200, message: team.teamName };
+    return { type: 200, message: team };
   }
 }
