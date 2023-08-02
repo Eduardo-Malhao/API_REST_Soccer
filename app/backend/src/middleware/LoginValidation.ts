@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { LoginInterface } from '../Interfaces/LoginInterface';
 
 class LoginValidation {
-  public static validateLoginData(req: Request, res: Response, next: NextFunction) {
+  public static validateLogin(req: Request, res: Response, next: NextFunction) {
     const loginData: LoginInterface = req.body;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
