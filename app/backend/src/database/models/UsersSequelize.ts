@@ -9,8 +9,8 @@ import UsersInterface from '../../Interfaces/UsersInterface';
 import db from '.';
 // import OtherModel from './OtherModel';
 
-class UsersSequelize extends Model<InferAttributes<UsersInterface>,
-InferCreationAttributes<UsersInterface>> {
+class UsersSequelize extends Model<InferAttributes<UsersSequelize>,
+InferCreationAttributes<UsersSequelize>> {
   declare id: CreationOptional<UsersInterface>;
   declare username: string;
   declare role: string;
