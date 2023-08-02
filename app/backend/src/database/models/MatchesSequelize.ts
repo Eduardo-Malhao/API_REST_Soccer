@@ -6,43 +6,49 @@ import {
   CreationOptional,
 } from 'sequelize';
 import db from '.';
+import TeamsSequelize from './TeamsSequelize';
 // import OtherModel from './OtherModel';
 
-class UsersSequelize extends Model<InferAttributes<UsersSequelize>,
-InferCreationAttributes<UsersSequelize>> {
+class MatchesSequelize extends Model<InferAttributes<MatchesSequelize>,
+InferCreationAttributes<MatchesSequelize>> {
   declare id: CreationOptional<number>;
-  declare username: string;
-  declare role: string;
-  declare email: string;
-  declare password: string;
+  declare homeTeamId: number;
+  declare homeTeamGoals: number;
+  declare awayTeamId: number;
+  declare awayTeamGoals: number;
+  declare inProgress: boolean;
 }
 
-UsersSequelize.init({
+MatchesSequelize.init({
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    primaryKey: true,
     autoIncrement: true,
+    primaryKey: true,
   },
-  username: {
-    type: DataTypes.STRING,
+  homeTeamId: {
+    type: DataTypes.NUMBER,
     allowNull: false,
   },
-  role: {
-    type: DataTypes.STRING,
+  homeTeamGoals: {
+    type: DataTypes.NUMBER,
     allowNull: false,
   },
-  email: {
-    type: DataTypes.STRING,
+  awayTeamId: {
+    type: DataTypes.NUMBER,
     allowNull: false,
   },
-  password: {
-    type: DataTypes.STRING,
+  awayTeamGoals: {
+    type: DataTypes.NUMBER,
+    allowNull: false,
+  },
+  inProgress: {
+    type: DataTypes.BOOLEAN,
     allowNull: false,
   },
 }, {
   sequelize: db,
-  modelName: 'users',
+  modelName: 'matches',
   timestamps: false,
   underscored: true,
 });
@@ -58,4 +64,7 @@ UsersSequelize.init({
 // Example.hasMany(OtherModel, { foreignKey: 'campoC', as: 'campoEstrangeiroC' });
 // Example.hasMany(OtherModel, { foreignKey: 'campoD', as: 'campoEstrangeiroD' });
 
-export default UsersSequelize;
+MatchesSequelize.belongsTo(TeamsSequelize, { foreignKey: 'awayTeamId', as: 'awayTeam' });
+MatchesSequelize.belongsTo(TeamsSequelize, { foreignKey: 'homeTeamId', as: 'homeTeam' });
+
+export default MatchesSequelize;

@@ -10,7 +10,7 @@ import db from '.';
 
 class TeamsSequelize extends Model<InferAttributes<TeamsSequelize>,
 InferCreationAttributes<TeamsSequelize>> {
-  declare id: CreationOptional<TeamsSequelize>;
+  declare id: CreationOptional<number>;
   declare teamName: string;
 }
 

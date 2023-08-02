@@ -9,8 +9,15 @@ export default class LoginController {
   }
 
   public async login(_req: Request, res: Response) {
-    const { authorization } = _req.headers;
-    const serviceResponse = await this.LoginService.login(authorization);
-    res.status(200).json(serviceResponse);
+    const { email, password } = _req.body;
+    const serviceResponse = await this.loginService.login(email, password);
+    res.status(200).json(serviceResponse.message);
   }
+
+  // public async getLogin(req: Request, res: Response) {
+  //   const { authorization } = req.headers;
+  //   const { id } = req.user;
+  //   const serviceResponse = await this.loginService.getLogin(authorization);
+  //   res.status(200).json(serviceResponse);
+  // }
 }

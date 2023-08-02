@@ -1,5 +1,6 @@
 import * as express from 'express';
-const teams = require('./router/teamsRouter');
+import teams from './router/TeamsRouter';
+import login from './router/LoginRouter';
 
 class App {
   public app: express.Express;
@@ -24,6 +25,7 @@ class App {
     this.app.use(express.json());
     this.app.use(accessControl);
     this.app.use('/teams', teams);
+    this.app.use('/login', login);
   }
 
   public start(PORT: string | number): void {
