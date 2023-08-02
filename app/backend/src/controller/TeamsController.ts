@@ -16,9 +16,7 @@ export default class TeamsController {
   public async findById(_req: Request, res: Response) {
     const { id } = _req.params;
     const { type, message } = await this.teamsService.findById(+id);
-    if (type === 400) {
-      res.status(400).json({ message });
-    }
+    if (type === 400) return res.status(400).json({ message });
     res.status(200).json(message);
   }
 }

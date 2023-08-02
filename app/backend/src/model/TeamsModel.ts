@@ -6,14 +6,19 @@ export default class teamsModel {
 
   async findAll(): Promise<TeamsInterface[]> {
     const response = await this.model.findAll();
-    return response.map(({ id, teamName }) => (
-      { id, teamName }
+    const ObjBuilder = response.map(({ id, teamName }) => (
+      { id: +id, teamName }
     ));
+    return ObjBuilder;
   }
 
   async findById(id: number): Promise<TeamsInterface | null> {
     const response = await this.model.findByPk(id);
     if (!response) return null;
-    return response;
+    const ObjBuilder = {
+      id: +response.id,
+      teamName: response.teamName,
+    };
+    return ObjBuilder;
   }
 }
