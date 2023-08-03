@@ -1,6 +1,5 @@
 import * as express from 'express';
-import teams from './router/TeamsRouter';
-import login from './router/LoginRouter';
+import router from './router/index';
 
 class App {
   public app: express.Express;
@@ -24,9 +23,9 @@ class App {
 
     this.app.use(express.json());
     this.app.use(accessControl);
-    this.app.use('/login', login);
-    this.app.use('/teams', teams);
   }
+
+  private routes():void { this.app.use(router); }
 
   public start(PORT: string | number): void {
     this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
