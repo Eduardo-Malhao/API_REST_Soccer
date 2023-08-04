@@ -6,14 +6,15 @@ export default class loginModel {
 
   async findUser(email: string): Promise<UsersInterface | null> {
     const response = await this.model.findOne({ where: { email } });
+    if (!response?.dataValues.id) return null;
+    console.log(response.dataValues);
+
+    return response;
+  }
+
+  async findUserRole(id: number): Promise<UsersInterface | null> {
+    const response = await this.model.findOne({ where: { id } });
     if (!response) return null;
-    const ObjBuilder = {
-      id: +response.id,
-      username: response.username,
-      role: response.role,
-      email: response.email,
-      password: response.password,
-    };
-    return ObjBuilder;
+    return response.dataValues;
   }
 }

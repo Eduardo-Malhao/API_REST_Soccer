@@ -14,10 +14,10 @@ export default class LoginController {
     res.status(200).json(serviceResponse.message);
   }
 
-  // public async getLogin(req: Request, res: Response) {
-  //   const { authorization } = req.headers;
-  //   const { id } = req.user;
-  //   const serviceResponse = await this.loginService.getLogin(authorization);
-  //   res.status(200).json(serviceResponse);
-  // }
+  public async findUserRole(req: Request, res: Response) {
+    const { id } = res.locals.user;
+    const { type, message } = await this.loginService.findUserRole(id);
+    if (type === 400) return res.status(400).json({ message });
+    res.status(200).json(message);
+  }
 }

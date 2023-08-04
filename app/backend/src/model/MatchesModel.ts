@@ -4,7 +4,6 @@ import TeamsSequelize from '../database/models/TeamsSequelize';
 
 export default class MatchesModel {
   private model = MatchesSequelize;
-  private teamsModel = TeamsSequelize;
 
   async findAll(): Promise<MatchesInterface[]> {
     const response = await this.model.findAll({
