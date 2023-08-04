@@ -12,4 +12,30 @@ export default class MatchesController {
     const serviceResponse = await this.matchesService.findAll();
     res.status(200).json(serviceResponse);
   }
+
+  public async findInProgress(_req: Request, res: Response) {
+    const serviceResponse = await this.matchesService.findInProgress();
+    res.status(200).json(serviceResponse);
+  }
+
+  public async findFinished(_req: Request, res: Response) {
+    const serviceResponse = await this.matchesService.findFinished();
+    res.status(200).json(serviceResponse);
+  }
+
+  public async finishMatch(req: Request, res: Response) {
+    const { id } = req.params;
+    const { type, message } = await this.matchesService.finishMatch(+id);
+    if (type === 404) return res.status(404).json({ message });
+    res.status(200).json({ message });
+  }
+
+  public async updateMatch(req: Request, res: Response) {
+    const { id } = req.params;
+    const { homeTeamGoals, awayTeamGoals } = req.body;
+    const { type, message } = await
+    this.matchesService.updateMatch(+id, homeTeamGoals, awayTeamGoals);
+    if (type === 404) return res.status(404).json({ message });
+    res.status(200).json({ message });
+  }
 }
