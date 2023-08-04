@@ -1,5 +1,5 @@
 export default class EmailValidation {
-  public static emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  public static emailRegex = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
 
   public static isValidEmail(email: string): boolean {
     return this.emailRegex.test(email);

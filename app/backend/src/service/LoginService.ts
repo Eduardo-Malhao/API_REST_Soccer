@@ -9,16 +9,16 @@ export default class LoginService {
 
   public async login(email: string, password: string) {
     const foundUser = await this.loginModel.findUser(email);
+
     if (!foundUser) {
       return { type: 401, message: 'Invalid email or password' };
     }
-    console.log(password);
     if (!bcrypt.compareSync(password, foundUser.password)) {
       return { type: 401, message: 'Invalid email or password' };
     }
     const tokenGenerated = jwtUtils.sign({ id: foundUser.id });
+    return { type: 200, message: tokenGenerated };
     //  readme sem info sobre id
-    return { type: 200, message: { token: tokenGenerated } };
   }
 
   public async findUserRole(id: number) {
