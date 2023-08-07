@@ -38,4 +38,12 @@ export default class MatchesController {
     if (type === 404) return res.status(404).json({ message });
     res.status(200).json({ message });
   }
+
+  public async create(req: Request, res: Response) {
+    const { homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals } = req.body;
+    const { type, message } = await this.matchesService
+      .create(+homeTeamId, +awayTeamId, +homeTeamGoals, +awayTeamGoals);
+    if (type === 401) return res.status(401).json({ message });
+    res.status(200).json(message);
+  }
 }

@@ -45,4 +45,22 @@ export default class MatchesModel {
     await this.model.update({
       homeTeamGoals: homeGoals, awayTeamGoals: awayGoals }, { where: { id } });
   }
+
+  async create(homeId: number, awayId: number, homeGoals: number, awayGoals: number)
+    : Promise<MatchesInterface> {
+    try {
+      const create = await this.model.create({
+        homeTeamId: homeId,
+        awayTeamId: awayId,
+        homeTeamGoals: homeGoals,
+        awayTeamGoals: awayGoals,
+        inProgress: true,
+      });
+
+      return create.dataValues;
+    } catch (error) {
+      console.error('Match not created:', error);
+      throw error;
+    }
+  }
 }

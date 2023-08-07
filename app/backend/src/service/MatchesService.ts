@@ -1,12 +1,16 @@
 import MatchesInterface from '../Interfaces/MatchesInterface';
 import MatchesModel from '../model/MatchesModel';
+import TeamsModel from '../model/TeamsModel';
 import { FinishMatchInterface } from '../Interfaces/FinishMatchInterface';
+import { CreateMatchInterface } from '../Interfaces/CreateMatchInterface';
 
 export default class MatchesService {
   constructor(
     private matchesModel: MatchesModel = new MatchesModel(),
+    private teamsModel: TeamsModel = new TeamsModel(),
   ) { }
 
+  static internalError = 'Inernal server error';
   public async findAll(): Promise<MatchesInterface[]> {
     const allTeams = await this.matchesModel.findAll();
     return allTeams;
@@ -31,7 +35,7 @@ export default class MatchesService {
         return { type: 404, message: { message: 'Match not found' } };
       }
       console.log(error);
-      return { type: 500, message: { message: 'Internal Server Error' } };
+      return { type: 500, message: { message: MatchesService.internalError } };
     }
   }
 
@@ -45,7 +49,27 @@ export default class MatchesService {
         return { type: 404, message: { message: 'Match not found' } };
       }
       console.log(error);
-      return { type: 500, message: { message: 'Internal Server Error' } };
+      return { type: 500, message: { message: MatchesService.internalError } };
     }
+  }
+
+  public async create(homeId: number, awayId: number, homeGoals: number, awayGoals: number)
+    : Promise<FinishMatchInterface | CreateMatchInterface> {
+    try {
+      const foundHomeTeam = await this.teamsModel.findById(homeId);
+      const foundAwayTeam = await this.teamsModel.findById(awayId);
+      if (foundAwayTeam !== null && foundHomeTeam !== null) {
+        const create = await this.matchesModel.create(homeId, awayId, homeGoals, awayGoals);
+        return { type: 201, message: create };
+      }
+
+      return { type: 404, message: { message: 'There is no team with such id!' } };
+    } catch (error: any) {
+      if (error.message) {
+        return { type: 401, message: { message: 'Match not created' } };
+      }
+    }
+    console.log(Error);
+    return { type: 500, message: { message: MatchesService.internalError } };
   }
 }
