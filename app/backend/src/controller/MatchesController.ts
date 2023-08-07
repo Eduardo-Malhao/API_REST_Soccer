@@ -44,6 +44,6 @@ export default class MatchesController {
     const { type, message } = await this.matchesService
       .create(+homeTeamId, +awayTeamId, +homeTeamGoals, +awayTeamGoals);
     if (type === 401) return res.status(401).json({ message });
-    res.status(200).json(message);
+    return res.status(type).json(message);
   }
 }
