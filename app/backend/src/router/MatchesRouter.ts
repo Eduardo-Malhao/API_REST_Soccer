@@ -17,9 +17,7 @@ router.patch(
   TokenValidation.validateToken,
   (req: Request, res: Response) => matchesController.updateMatch(req, res),
 );
-router.get('/', (req: Request, res: Response) => matchesController.findAll(req, res));
-router.get('/', (req: Request, res: Response) => matchesController.findInProgress(req, res));
-router.get('/', (req: Request, res: Response) => matchesController.findFinished(req, res));
+router.get('/', (req: Request, res: Response) => matchesController.findMatchByProgress(req, res));
 router.post(
   '/',
   TokenValidation.validateToken,

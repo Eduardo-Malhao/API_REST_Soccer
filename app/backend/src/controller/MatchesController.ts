@@ -8,19 +8,20 @@ export default class MatchesController {
     this.matchesService = new MatchesService();
   }
 
-  public async findAll(_req: Request, res: Response) {
-    const serviceResponse = await this.matchesService.findAll();
-    res.status(200).json(serviceResponse);
-  }
-
-  public async findInProgress(_req: Request, res: Response) {
-    const serviceResponse = await this.matchesService.findInProgress();
-    res.status(200).json(serviceResponse);
-  }
-
-  public async findFinished(_req: Request, res: Response) {
-    const serviceResponse = await this.matchesService.findFinished();
-    res.status(200).json(serviceResponse);
+  public async findMatchByProgress(req: Request, res: Response) {
+    const flag = req.query.inProgress;
+    if (!flag) {
+      const serviceResponse = await this.matchesService.findAll();
+      res.status(200).json(serviceResponse);
+    }
+    if (flag === 'true') {
+      const serviceResponse = await this.matchesService.findInProgress();
+      res.status(200).json(serviceResponse);
+    }
+    if (flag === 'false') {
+      const serviceResponse = await this.matchesService.findFinished();
+      res.status(200).json(serviceResponse);
+    }
   }
 
   public async finishMatch(req: Request, res: Response) {
