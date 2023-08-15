@@ -21,4 +21,11 @@ export default class teamsModel {
     };
     return ObjBuilder;
   }
+
+  async findAllWithoutId(): Promise<TeamsInterface[]> {
+    const response = await this.model.findAll({
+      attributes: { exclude: ['id'] },
+    });
+    return response;
+  }
 }
