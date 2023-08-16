@@ -1,4 +1,4 @@
-export interface LeaderboardInterface {
+export interface IHomeAwayLeaderboard {
   name: string;
   totalPoints: number;
   totalGames: number;
