@@ -1,0 +1,1 @@
+const  token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkxMTcxNjUyfQ.3Gw4vBkOax6_ETHK5RzBd4wik37HXp0X7onw38TmJVc'
