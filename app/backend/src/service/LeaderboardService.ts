@@ -1,5 +1,4 @@
 import TeamsInterface from '../Interfaces/TeamsInterface';
-// import { IHomeAwayLeaderboard } from '../Interfaces/IHomeAwayLeaderboard';
 import { IAllLeaderboard } from '../Interfaces/IAllLeaderboard';
 import MatchesModel from '../model/MatchesModel';
 import TeamsModel from '../model/TeamsModel';

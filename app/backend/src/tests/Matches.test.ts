@@ -5,8 +5,13 @@ import chaiHttp = require('chai-http');
 
 import { app } from '../app';
 import MatchesSequelize from '../database/models/MatchesSequelize';
+import TeamsSequelize from '../database/models/TeamsSequelize';
+
 import MatchesModel from '../model/MatchesModel';
-import { token, allMatchesMock, allFinishedMatchesMock, allOnGoingMatchesMock} from './mocks/MatchesMock';
+import JwtUtils from '../utils/jwtUtils';
+
+import { newMatchBodyMock, matchesMock, newMatchMock, allOnGoingMatchesMock, token} from './mocks/MatchesMock';
+import { teamsMock } from './mocks/TeamsMock';
 
 import { Response } from 'superagent';
 
@@ -18,11 +23,11 @@ describe('Matches', () => {
     afterEach(sinon.restore);
   
     it('findAll', async function() {
-      sinon.stub(MatchesSequelize, 'findAll').resolves(allMatchesMock as any);
+      sinon.stub(MatchesSequelize, 'findAll').resolves(matchesMock as any);
       const { status, body } = await chai.request(app).get('/matches');
   
       expect(status).to.equal(200);
-      expect(body).to.deep.equal(allMatchesMock);
+      expect(body).to.deep.equal(matchesMock);
     });
   
     it('OnGoingMatches', async function() {
@@ -32,6 +37,24 @@ describe('Matches', () => {
       expect(status).to.equal(200);
       expect(body).to.deep.equal(allOnGoingMatchesMock);
     });
+
+    it('Create', async function() {
+      const DB = MatchesSequelize.build(newMatchMock as any);
+  
+      sinon.stub(JwtUtils, 'verify').resolves({ id: 1 } as any);
+      sinon.stub(MatchesSequelize, 'create').resolves(DB as any);
+
+      const teamsSequelizeFindByPkStub = sinon.stub(TeamsSequelize, 'findByPk');
+      teamsSequelizeFindByPkStub.onCall(0).resolves(teamsMock[0] as any);
+      teamsSequelizeFindByPkStub.onCall(1).resolves(teamsMock[1] as any);
+      
+      const { status, body } = await chai.request(app).post('/matches')
+      .set('Authorization', token)
+      .send(newMatchBodyMock);
+  
+      expect(status).to.equal(201);
+      expect(body).to.deep.equal(newMatchMock);
+    })
 
     it('should finish a match', async () => {
         const updateStub = sinon.stub(MatchesSequelize, 'update').resolves(1 as any);

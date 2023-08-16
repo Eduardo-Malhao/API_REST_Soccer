@@ -6,12 +6,18 @@ const userMock = {
         password: '$2a$08$Y8Abi8jXvsXyqm.rmp0B.uQBA5qUz7T6Ghlg/CvVr/gLxYj5UAZVO'
     }
 
-const userToken = {
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjkyMTU4MDc3fQ.6-SFOP0em43fnIFE4IJfrrsrNZfgVvsAhqItW-l2tNI"
-    }
+const userFailBody = {
+    email: 'user@.com',
+    password: 'secret_user'
+}
 
+const userBody = {
+    email: 'user@userBody.com',
+    password: 'secret_user'
+}
 
 export {
     userMock,
-    userToken
+    userFailBody,
+    userBody
 }

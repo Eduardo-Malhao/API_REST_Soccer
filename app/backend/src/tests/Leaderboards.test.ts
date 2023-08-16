@@ -4,42 +4,59 @@ import * as chai from 'chai';
 import chaiHttp = require('chai-http');
 
 import { app } from '../app';
-import Example from '../database/models/ExampleModel';
+import MatchesSequelize from '../database/models/MatchesSequelize';
+import TeamsSequelize from '../database/models/TeamsSequelize';
+
+import { allTeamsMock } from './mocks/TeamsMock';
+import { allFinishedMatchesMock } from './mocks/MatchesMock';
+import { AllMock, AwayMock, HomeMock } from './mocks/LeaderboardsMock';
 
 import { Response } from 'superagent';
+
 
 chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('Seu teste', () => {
-  /**
-   * Exemplo do uso de stubs com tipos
-   */
+describe('Leaderboard', () => {
+  afterEach(sinon.restore);
 
-  // let chaiHttpResponse: Response;
+  it('Home', async function () {
+    const teamsDB = allTeamsMock.map((team) => TeamsSequelize.build(team));
+    // const matchesDB = allFinishedMatchesMock.map((match) => TeamsSequelize.build(match));
+  
+    sinon.stub(TeamsSequelize, 'findAll').resolves(teamsDB as any);
+    sinon.stub(MatchesSequelize, 'findAll').resolves(allFinishedMatchesMock as any);
+    
+    const { status, body } = (await chai.request(app).get('/leaderboard/home').send());
 
-  // before(async () => {
-  //   sinon
-  //     .stub(Example, "findOne")
-  //     .resolves({
-  //       ...<Seu mock>
-  //     } as Example);
-  // });
+    expect(status).to.equal(200);
+    expect(body).to.deep.equal(HomeMock);
+  });
 
-  // after(()=>{
-  //   (Example.findOne as sinon.SinonStub).restore();
-  // })
+  it('Away', async function () {
+    const teamsDB = allTeamsMock.map((team) => TeamsSequelize.build(team));
+    // const matchesDB = allFinishedMatchesMock.map((match) => TeamsSequelize.build(match));
+  
+    sinon.stub(TeamsSequelize, 'findAll').resolves(teamsDB as any);
+    sinon.stub(MatchesSequelize, 'findAll').resolves(allFinishedMatchesMock as any);
+    
+    const { status, body } = (await chai.request(app).get('/leaderboard/away').send());
 
-  // it('...', async () => {
-  //   chaiHttpResponse = await chai
-  //      .request(app)
-  //      ...
+    expect(status).to.equal(200);
+    expect(body).to.deep.equal(AwayMock);
+  });
 
-  //   expect(...)
-  // });
+  it('All', async function () {
+    const teamsDB = allTeamsMock.map((team) => TeamsSequelize.build(team));
+    // const matchesDB = allFinishedMatchesMock.map((match) => TeamsSequelize.build(match));
+  
+    sinon.stub(TeamsSequelize, 'findAll').resolves(teamsDB as any);
+    sinon.stub(MatchesSequelize, 'findAll').resolves(allFinishedMatchesMock as any);
+    
+    const { status, body } = (await chai.request(app).get('/leaderboard').send());
 
-  it('Seu sub-teste', () => {
-    expect(false).to.be.eq(true);
+    expect(status).to.equal(200);
+    expect(body).to.deep.equal(AllMock);
   });
 });
