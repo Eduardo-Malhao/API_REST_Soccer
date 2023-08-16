@@ -76,7 +76,7 @@ export default class LeaderboardService {
       }
       if (team.name === match.awayTeam.teamName) {
         oldStats.goalsFavor += match.awayTeamGoals;
-        oldStats.goalsOwn += match.awayTeamGoals;
+        oldStats.goalsOwn += match.homeTeamGoals;
         oldStats.goalsBalance += match.awayTeamGoals - match.homeTeamGoals;
       }
     });

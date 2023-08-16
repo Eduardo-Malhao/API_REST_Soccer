@@ -24,25 +24,6 @@ export default class LeaderboardService {
     return response;
   }
 
-  // public static makeArrayOfTeams(teams: TeamsInterface[]) { // array com nomes de times
-  //   const leaderbord: IHomeAwayLeaderboard[] = [];
-
-  //   teams.forEach((team) => {
-  //     leaderbord.push({
-  //       name: team.teamName,
-  //       totalPoints: 0,
-  //       totalGames: 0,
-  //       totalVictories: 0,
-  //       totalDraws: 0,
-  //       totalLosses: 0,
-  //       goalsFavor: 0,
-  //       goalsOwn: 0,
-  //       efficiency: 0,
-  //     });
-  //   });
-  //   return leaderbord;
-  // }
-
   public static makeArrayOfAllTeams(teams: TeamsInterface[]) { // array com nomes de times
     const leaderbord: IAllLeaderboard[] = [];
 
