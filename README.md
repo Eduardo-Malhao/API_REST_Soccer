@@ -8,9 +8,9 @@
 🇧🇷 Estrutura de Pastas e Organização
 A aplicação Back-End está organizada seguindo o padrão MSC (Model, Service, Controller), proporcionando uma estrutura limpa e escalável. As pastas principais e suas responsabilidades são as seguintes:
 
-*Controller: Controladores que lidam com as requisições HTTP e a lógica de roteamento.
-*Service: Camada de serviço que contém a lógica de negócios da aplicação.
-*Database (Model/Migration): Modelos de dados e migrações para a criação e modificação do esquema do banco de dados.
+* Controller: Controladores que lidam com as requisições HTTP e a lógica de roteamento.
+* Service: Camada de serviço que contém a lógica de negócios da aplicação.
+* Database (Model/Migration): Modelos de dados e migrações para a criação e modificação do esquema do banco de dados.
 
 🇺🇸 Folder Structure and Organization
 The Back-End application is structured following the MSC (Model, Service, Controller) pattern, providing a clean and scalable architecture. The main folders and their responsibilities are as follows:
@@ -95,6 +95,20 @@ Clone o repositório da aplicação.
 
 __Sua aplicação estará pronta para uso em seu navegador ou em sua IDE (ThunderClient)__
 
+Logins:
+
+__Usuário Padrão__  
+email: "user@user.com"  
+senha: "secret_user"
+
+__Usuário Administrador__  
+email: "admin@admin.com"  
+senha: "secret_admin"
+
+Para a área de desenvolvimento: 
+token usuário padrão: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjk1OTEyMDk5fQ.NpTpCiL0c7noOkdrDugs5O-CIZpTVO0jq8-9cK2r_Ss`  
+token usuário administrador: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1OTE0MzMxfQ.VHLVD5CHJNTKrppA_-buaw2_RzooM-DSBA_uo2I8d-w`
+
 🇺🇸 Running the Application
 To run the Back-End application, follow these steps:
 
@@ -106,6 +120,20 @@ Clone the application repository.
 * After the container is online, in the frontend folder do: `npm start`
 
 __Your application will be ready to use in your browser or in your IDE (ThunderClient)__
+
+Logins:
+
+__Standard User__  
+email: "user@user.com"  
+password: "secret_user"
+
+__Admin User__  
+email: "admin@admin.com"  
+password: "secret_admin"
+
+For development area: 
+token standard user: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjk1OTEyMDk5fQ.NpTpCiL0c7noOkdrDugs5O-CIZpTVO0jq8-9cK2r_Ss`  
+token admin user: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk1OTE0MzMxfQ.VHLVD5CHJNTKrppA_-buaw2_RzooM-DSBA_uo2I8d-w`
 
 🇧🇷 Conclusão
 Este Back-End de Gerenciamento de Partidas de Futebol oferece uma estrutura organizada, funcionalidades poderosas e segurança no acesso aos dados. Certifique-se de revisar a documentação do Front-End para obter informações completas sobre o uso da aplicação como um todo.
