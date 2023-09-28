@@ -24,8 +24,8 @@ O mesmo usuário poderá, requisitar:
 
 De acordo com as permissões do usuário será possível:
 A verificação do usuário será feita de acordo com o token que o mesmo possuí.
--> Criar novas partidas
--> Encerrar partidas em Andamento
--> Atualizar o Placar da Partida
+* Criar novas partidas
+* Encerrar partidas em Andamento
+* Atualizar o Placar da Partida
 
 O Back-End foi testado utilizando Testes Unitários e Testes de Integração, com a devida cobertura de código e aplicação do TDD.
