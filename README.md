@@ -1,6 +1,8 @@
 # README:
 Back-end - Gerenciamento de Partidas de Futebol
 
+OBS: Apenas o Back-End foi desenvolvido (Front-end estava pronto)
+
 Organização de pastas em formato MSC (Controller, Service, Database(Model/Migration))
 Bibliotecas utilizadas:
 * Sequelize
@@ -9,12 +11,21 @@ Bibliotecas utilizadas:
 * Bcrypt
 * Mysql12
 
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+A aplicação funciona através de usuários préviamente cadastrados no banco de dados.
+Adição de novos usuários é feita através dos SEEDERS do SEQUELIZE.
+O mesmo usuário poderá, requisitar:
+-> Todos os Times
+-> Todas as partidas
+-> Todas as partidas por Time
+-> Dashboard das partidas
+  * Partidas por Time em casa
+  * Partidas por Time fora de casa
+  * Todas Partidas
+
+De acordo com as permissões do usuário será possível:
+A verificação do usuário será feita de acordo com o token que o mesmo possuí.
+-> Criar novas partidas
+-> Encerrar partidas em Andamento
+-> Atualizar o Placar da Partida
+
+O Back-End foi testado utilizando Testes Unitários e Testes de Integração, com a devida cobertura de código e aplicação do TDD.
