@@ -93,7 +93,7 @@ Clone o repositório da aplicação.
 * Popule o banco de dados, na psata backend faça: `db:reset`
 * Após o contêiner ficar online, na pasta frontend faça: `npm start`
 
-**Sua aplicação estará pronta para uso em seu navegador ou em sua IDE (ThunderClient)**
+__Sua aplicação estará pronta para uso em seu navegador ou em sua IDE (ThunderClient)__
 
 🇺🇸 Running the Application
 To run the Back-End application, follow these steps:
@@ -105,7 +105,7 @@ Clone the application repository.
 * Populate the database, in the psata backend do: `db:reset`
 * After the container is online, in the frontend folder do: `npm start`
 
-**Your application will be ready to use in your browser or in your IDE (ThunderClient)**
+__Your application will be ready to use in your browser or in your IDE (ThunderClient)__
 
 🇧🇷 Conclusão
 Este Back-End de Gerenciamento de Partidas de Futebol oferece uma estrutura organizada, funcionalidades poderosas e segurança no acesso aos dados. Certifique-se de revisar a documentação do Front-End para obter informações completas sobre o uso da aplicação como um todo.
