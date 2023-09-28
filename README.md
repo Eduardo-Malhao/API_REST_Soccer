@@ -5,7 +5,7 @@ OBS: Apenas o Back-End foi desenvolvido (Front-end estava pronto)
 
 Organização de pastas em formato MSC (Controller, Service, Database(Model/Migration))
 Bibliotecas utilizadas:
-* Sequelize
+ Sequelize
 * Express
 * JsonWebToken
 * Bcrypt
@@ -14,10 +14,10 @@ Bibliotecas utilizadas:
 A aplicação funciona através de usuários préviamente cadastrados no banco de dados.
 Adição de novos usuários é feita através dos SEEDERS do SEQUELIZE.
 O mesmo usuário poderá, requisitar:
--> Todos os Times
--> Todas as partidas
--> Todas as partidas por Time
--> Dashboard das partidas
+* Todos os Times
+* Todas as partidas
+* Todas as partidas por Time
+* Dashboard das partidas
   * Partidas por Time em casa
   * Partidas por Time fora de casa
   * Todas Partidas
