@@ -1,4 +1,14 @@
-# :construction: README em construção ! :construction:
+# README:
+Back-end - Gerenciamento de Partidas de Futebol
+
+Organização de pastas em formato MSC (Controller, Service, Database(Model/Migration))
+Bibliotecas utilizadas:
+* Sequelize
+* Express
+* JsonWebToken
+* Bcrypt
+* Mysql12
+
 <!-- Olá, Tryber!
 Esse é apenas um arquivo inicial para o README do seu projeto.
 É essencial que você preencha esse documento por conta própria, ok?
