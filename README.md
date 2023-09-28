@@ -86,21 +86,23 @@ The Back-End underwent Unit Testing and Integration Testing to ensure code quali
 Para executar a aplicação Back-End, siga os seguintes passos:
 
 Clone o repositório da aplicação.
-Instale as dependências com npm install ou yarn install.
-Configure o banco de dados no arquivo de configuração Sequelize.
-Execute a migração do banco de dados com npm run migrate ou yarn migrate.
-Inicie o servidor com npm start ou yarn start.
-Certifique-se de que todas as variáveis de ambiente necessárias estão configuradas corretamente, incluindo a chave JWT e as informações de conexão com o banco de dados.
+Na pasta frontend faça: `npm install`
+Na pasta backend faça: `npm install`
+Inicialize o contêiner na pasta backend: `docker compose up --build`
+Popule o banco de dados, na psata backend faça: `db:reset`
+Após o contêiner ficar online, na pasta frontend faça: `npm start`
+# Sua aplicação estará pronta para uso em seu navegador ou em sua IDE (ThunderClient) #
 
 🇺🇸 Running the Application
 To run the Back-End application, follow these steps:
 
-Clone the application's repository.
-Install dependencies using npm install or yarn install.
-Configure the database in the Sequelize configuration file.
-Run the database migration using npm run migrate or yarn migrate.
-Start the server using npm start or yarn start.
-Ensure that all required environment variables are properly configured, including the JWT secret key and database connection information.
+Clone the application repository.
+In the frontend folder do: `npm install`
+In the backend folder do: `npm install`
+Initialize the container in the backend folder: `docker compose up --build`
+Populate the database, in the psata backend do: `db:reset`
+After the container is online, in the frontend folder do: `npm start`
+# Your application will be ready to use in your browser or in your IDE (ThunderClient) #
 
 🇧🇷 Conclusão
 Este Back-End de Gerenciamento de Partidas de Futebol oferece uma estrutura organizada, funcionalidades poderosas e segurança no acesso aos dados. Certifique-se de revisar a documentação do Front-End para obter informações completas sobre o uso da aplicação como um todo.
