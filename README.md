@@ -77,7 +77,7 @@ Agradecemos por escolher nossa aplicação de Gerenciamento de Partidas de Futeb
 🧑‍💻 Equipe de Desenvolvimento  
 Eduardo Malhao - https://www.linkedin.com/in/eduardo-malhao/  
 
-# Readme - 🇺🇸 Football Match Management (Back-End) #  
+# Readme - 🇺🇸 Soccer Match Management (Back-End) #  
 
 🇺🇸 This readme provides detailed information about the Back-End of the Football Match Management application, including its structure, features, used libraries, and development practices. The Front-End of the application is already complete and will not be covered in this document.
 
