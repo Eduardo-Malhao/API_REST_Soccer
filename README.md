@@ -49,7 +49,7 @@ Clone o repositório da aplicação.
 * Na pasta frontend faça: `npm install`
 * Na pasta backend faça: `npm install`
 * Inicialize o contêiner na pasta backend: `docker compose up --build`
-* Popule o banco de dados, na psata backend faça: `db:reset`
+* Popule o banco de dados, na pasta backend faça: `db:reset`
 * Após o contêiner ficar online, na pasta frontend faça: `npm start`
 
 __Sua aplicação estará pronta para uso em seu navegador ou em sua IDE (ThunderClient)__
@@ -127,7 +127,7 @@ Clone the application repository.
 * In the frontend folder do: `npm install`
 * In the backend folder do: `npm install`
 * Initialize the container in the backend folder: `docker compose up --build`
-* Populate the database, in the psata backend do: `db:reset`
+* Populate the database, in the backend folder do: `db:reset`
 * After the container is online, in the frontend folder do: `npm start`
 
 __Your application will be ready to use in your browser or in your IDE (ThunderClient)__
@@ -150,7 +150,7 @@ token admin user: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0I
 This Football Match Management Back-End offers an organized structure, powerful features, and data access security. Be sure to review the Front-End documentation for complete information on using the application as a whole.
 
 For any questions or issues, please feel free to contact the development team.
-Thank you for choosing our Football Match Management application!
+Thank you for choosing our Soccer Match Management application!
 
 🧑‍💻 Development Team  
 Eduardo Malhao - https://www.linkedin.com/in/eduardo-malhao/  
